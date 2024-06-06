@@ -1,0 +1,151 @@
+Task 1 :- Select All
+
+Query all columns (attributes) for every row in the CITY table.
+The CITY table is described as follows:
+Field        Type
+ID           NUMBER
+Name         VARCHAR2(17)
+CountryCode  VARCHAR2(3)
+DISTRICT     VARCHAR(20)
+POPULATION   NUMBER
+
+Query 
+select * from city;
+
+Task 2 :- Select By ID
+
+Query all columns for a city in CITY with the ID 1661.
+The CITY table is described as follows:
+Field        Type
+ID           NUMBER
+Name         VARCHAR2(17)
+CountryCode  VARCHAR2(3)
+DISTRICT     VARCHAR(20)
+POPULATION   NUMBER
+
+Query
+select * from city where id = 1661;
+
+Task 3 :- Employee Names
+
+Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+Input Format
+The Employee table containing employee data for a company is described as follows:
+Column       Type
+employee_id  Integer
+name         String
+months       Integer
+salary       Integer
+
+Query
+select name from employee order by name;
+
+Task 4 :- Japanese Cities' Attributes
+
+Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
+The CITY table is described as follows:
+Field        Type
+ID           NUMBER
+Name         VARCHAR2(17)
+CountryCode  VARCHAR2(3)
+DISTRICT     VARCHAR(20)
+POPULATION   NUMBER
+
+Query
+select * from city where countrycode = 'JPN';
+
+Task 5 :- Weather Observation Station 1
+
+Query a list of CITY and STATE from the STATION table.
+The STATION table is described as follows:
+Field        Type
+ID           NUMBER
+CITY         VARCHAR2(17)
+STATE        VARCHAR2(3)
+LAT_N        NUMBER
+LONG_W       NUMBER
+
+Query
+select city,state from station;
+
+Task 6 :- Weather Observation Station 3
+
+Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+The STATION table is described as follows:
+Field        Type
+ID           NUMBER
+CITY         VARCHAR2(17)
+STATE        VARCHAR2(3)
+LAT_N        NUMBER
+LONG_W       NUMBER
+
+Query 
+select distinct city from station where id % 2 = 0;
+
+Task 7 :- Weather Observation Station 4
+
+Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+The STATION table is described as follows:
+Field        Type
+ID           NUMBER
+CITY         VARCHAR2(21)
+STATE        VARCHAR2(2)
+LAT_N        NUMBER
+LONG_W       NUMBER
+
+Query
+select count(city) - count(distinct city) from station;
+
+Task 8 :- Weather Observation Station 5
+
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+The STATION table is described as follows:
+Field        Type
+ID           NUMBER
+CITY         VARCHAR2(21)
+STATE        VARCHAR2(2)
+LAT_N        NUMBER
+LONG_W       NUMBER
+
+Query
+select city,length(city) from station order by length(city),city limit 1;
+select city,length(city) from station order by length(city) desc,city asc limit 1;
+
+Task 9 :- Average Population
+
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+Input Format
+The CITY table is described as follows:
+Field        Type
+ID           NUMBER
+Name         VARCHAR2(17)
+CountryCode  VARCHAR2(3)
+DISTRICT     VARCHAR(20)
+POPULATION   NUMBER
+
+Query 
+select round(sum(population)/count(name)) from city;
+
+Task 10 :- Average Population of Each Continent
+
+Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+Input Format
+The CITY and COUNTRY tables are described as follows:
+
+Query
+select ct.continent,floor(avg(c.population)) from city c join country ct on c.countrycode = ct.code group by ct.continent;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
