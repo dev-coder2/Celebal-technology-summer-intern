@@ -31,6 +31,4 @@ The data used in this analysis can be found at:
    - **Query 6**: Determine the route between two locations with the most number of passengers.
    - **Query 7**: Get the top pickup locations with the most passengers in the last 5/10 seconds.
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
